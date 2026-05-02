@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
+    --ring: 221 83% 53%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --radius: 1rem;
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-border: 222 47% 15%;
+  }
+  .dark {
+    --background: 222 47% 4%;
+    --foreground: 210 40% 98%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 210 40% 98%;
+    --muted: 217 32% 12%;
+    --muted-foreground: 215 20% 65%;
+    --border: 217 32% 17%;
+    --card: 222 47% 6%;
+    --card-foreground: 210 40% 98%;
+    --sidebar-background: 222 47% 3%;
+    --sidebar-border: 222 47% 10%;
+  }
+}
+@layer components {
+  .glass-panel {
+    @apply bg-background/70 backdrop-blur-lg border border-border/50 shadow-soft;
+  }
+  .btn-gradient {
+    @apply bg-gradient-to-br from-blue-600 to-indigo-700 text-white hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-blue-500/20;
+  }
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  @keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
+* {
+  @apply border-border;
+}
+body {
+  @apply bg-background text-foreground antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
